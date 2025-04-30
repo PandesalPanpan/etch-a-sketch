@@ -1,7 +1,14 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
     display: flex;
     flex-flow: row nowrap;
-    width: 400px;
+    width: 500px;
     height: 500px;
     border: 2px solid red;
 }
