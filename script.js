@@ -1,6 +1,11 @@
 // Create 16x16 square divs
 const container = document.querySelector('.container');
+const colors = ['red','blue','yellow','green'];
 
+function getRandomColor()
+{
+    return colors[Math.floor(Math.random() * colors.length)];
+}
 
 // Create a function that creates a grid
 function updateGrid(gridSize = 16)
@@ -20,6 +25,10 @@ function updateGrid(gridSize = 16)
             {
                 const row = document.createElement('div')
                 row.classList.add('row');
+                // Add an eventlistener that adds a random css color
+                row.addEventListener('mouseover', () => {
+                    row.style.backgroundColor = getRandomColor();
+                });
                 column.appendChild(row);
             }
         
