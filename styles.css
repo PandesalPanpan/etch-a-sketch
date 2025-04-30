@@ -1,10 +1,22 @@
 .container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
+    width: 400px;
+    height: 500px;
+    border: 2px solid red;
+}
+
+.column {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
 }
 
 .row {
     border: 1px solid black;
-    width: 5vh;
-    height: 5vh;
+    flex: 1;
+}
+
+.row:hover {
+    background-color: black;
 }

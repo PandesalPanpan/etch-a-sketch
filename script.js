@@ -1,22 +1,44 @@
 // Create 16x16 square divs
 const container = document.querySelector('.container');
-console.log('Test')
 
-// Display 16 boxes in a single row, and create 16 rows
-// Create the first Columns w/ display flex
-for (let i = 0; i < 16; i++)
+
+// Create a function that creates a grid
+function updateGrid(gridSize = 16)
 {
-    const column = document.createElement('div');
-    column.classList.add('column');
-    // Loop through 16 columns to add the rows
-    for (let j = 0; j < 16; j++)
+    // Check if grid exists
+    while (container.firstChild)
     {
-        const row = document.createElement('div')
-        row.classList.add('row');
-        column.appendChild(row);
+        container.removeChild(container.firstChild);
     }
 
-    container.appendChild(column);
+    for (let i = 0; i < gridSize; i++)
+        {
+            const column = document.createElement('div');
+            column.classList.add('column');
+            // Loop through 16 columns to add the rows
+            for (let j = 0; j < gridSize; j++)
+            {
+                const row = document.createElement('div')
+                row.classList.add('row');
+                column.appendChild(row);
+            }
+        
+            container.appendChild(column);
+        }
 }
+// Output -> Clears the container and adds the new grid
 
+
+const changeBtn = document.querySelector('button').addEventListener('click', () => {
+    let newGridSize;
+    
+    do
+    {
+        newGridSize = +prompt("Number of Squares", "16");
+    }   while(newGridSize > 100 || newGridSize <= 0)
+
+    updateGrid(newGridSize);
+});
+
+updateGrid();
 
